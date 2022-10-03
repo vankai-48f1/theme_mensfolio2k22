@@ -128,9 +128,9 @@ h6 {
   content: "#";
 }
 
-.ctheme-header__hashtag a::after {
+/* .ctheme-header__hashtag a::after {
   content: '(' attr(data-count) ')';
-}
+} */
 
 .ctheme-header__hashtag li {
   margin-bottom: 0;
@@ -553,6 +553,8 @@ a.ctheme-more-articles {
   margin: 0 auto;
   border-radius: 50%;
   border: 1px solid #000;
+  object-fit: cover;
+  -o-object-fit: cover;
 }
 
 .post-author-name {

@@ -41,7 +41,12 @@ $the_query = new WP_Query($args);
                                 <div class="post-author">
                                     <?php $avatar_url = get_avatar_url(get_the_author_meta('ID'), array('size' => 450)); ?>
                                     <div class="author-picture-wrap">
-                                        <img src="<?php echo esc_url($avatar_url); ?>" alt="" class="author-picture">
+                                        <?php
+                                            $avatar_user = get_field('avatar_user', 'user_' . get_the_author_meta('ID'));
+                                            if ($avatar_user['url']) {
+                                                echo '<img src="' . $avatar_user['url'] . '" alt="' . $avatar_user['title'] . '" class="author-picture"/>';
+                                            }
+                                        ?>
                                     </div>
                                 </div>
                             </div>

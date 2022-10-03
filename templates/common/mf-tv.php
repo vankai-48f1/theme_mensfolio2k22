@@ -7,7 +7,7 @@
                 <!-- card -->
                 <?php
                 $cat_id = 76; //mf
-                $args = array('cat' => $cat_id, 'posts_per_page' => '2', 'post_status' => 'publish');
+                $args = array('cat' => $cat_id, 'posts_per_page' => '3', 'post_status' => 'publish');
                 $the_query = new WP_Query($args);
                 ?>
                 <?php if ($the_query->have_posts()) : ?>
@@ -23,7 +23,7 @@
                         $excerpt = !empty($post->post_excerpt) ? $post->post_excerpt : $post->post_content;
                         $post_excerpt = limit_text(strip_tags($excerpt), $limit_excerpt);
                         ?>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                             <div class="mb-4">
                                 <!-- card -->
                                 <a href="<?php echo get_permalink(); ?>" data_url="<?php echo get_permalink(); ?>" class="click_me">

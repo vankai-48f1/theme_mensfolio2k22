@@ -73,7 +73,14 @@ $category_id = 0;
                                     <?php $avatar_url = get_avatar_url(get_the_author_meta('ID'), array('size' => 450)); ?>
                                     <div class="post-author-info article-latest__category">
                                         <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" class="author-picture-wrap">
-                                            <img src="<?php echo esc_url($avatar_url); ?>" alt="" class="author-picture">
+                                            <?php
+                                            $avatar_user = get_field('avatar_user', 'user_' . get_the_author_meta('ID'));
+                                            if ($avatar_user['url']) {
+                                                echo '<img src="' . $avatar_user['url'] . '" alt="' . $avatar_user['title'] . '" class="author-picture"/>';
+                                            }
+                                            ?>
+
+                                            <!-- <img src="< ?php echo esc_url($avatar_url); ?>" alt="" class="author-picture"> -->
                                         </a>
                                         <div class="post-author-name font-secondary-medium-01 cl-white pt-2">
                                             <span class="author">
