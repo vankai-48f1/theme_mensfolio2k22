@@ -109,17 +109,35 @@ h6 {
 
 .ctheme-header__hashtag {
   margin-right: 25px;
-  font-family: "BeVietnamPro-Regular";
-  font-size: 14px;
-  font-style: italic;
-  text-transform: uppercase;
-  white-space: nowrap;
+  display: flex;
+  /* flex-wrap: wrap; */
 }
 
 .ctheme-header__hashtag a {
   letter-spacing: 0;
   display: inline-block;
-  margin-left: 3px;
+  font-family: "BeVietnamPro-Regular";
+  font-size: 13px;
+  font-style: italic;
+  text-transform: uppercase;
+  white-space: nowrap;
+  line-height: 1.6;
+}
+
+.ctheme-header__hashtag a::before {
+  content: "#";
+}
+
+.ctheme-header__hashtag a::after {
+  content: '(' attr(data-count) ')';
+}
+
+.ctheme-header__hashtag li {
+  margin-bottom: 0;
+}
+
+.ctheme-header__hashtag li:not(:last-child) {
+  margin-right: 7px;
 }
 
 .social_media--social {

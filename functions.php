@@ -141,3 +141,30 @@ function ctheme_generate_image($id, $size = 'format_6'){
 
     return $thumb;
 }
+
+// Register menu child theme
+function ctheme_register_menu () {
+    register_nav_menu('hashtag-menu', __('Hashtag Menu'));
+}
+
+add_action('init', 'ctheme_register_menu');
+
+// Add attribute to item menu
+add_filter('nav_menu_link_attributes', 'ctheme_add_attribute_menuitem', 10, 3);
+function ctheme_add_attribute_menuitem($atts, $item, $args)
+{
+
+    $main_menu = wp_get_nav_menu_items(4669) ? wp_get_nav_menu_items(4669) : wp_get_nav_menu_items('Hashtag Menu');
+    
+    foreach ($main_menu as $menu_item) {
+        
+        if ($item->ID == $menu_item->ID) {
+            if ($menu_item->type === 'taxonomy' && $menu_item->object == 'post_tag') {
+                $atts['data-count'] = get_term($menu_item->object_id)->count;
+            }
+        }
+    }
+
+
+    return $atts;
+}
