@@ -2,13 +2,13 @@
 get_header();
 ?>
 
-<div class="container">
-    <!-- < ?php include(TEMPLATEPATH . '/templates/common/content-slider.php'); ?> -->
-    <!-- < ?php get_template_part('templates/common/content', 'slider') ?> -->
+<div class="ctheme-hm-slider">
+    <?php get_template_part('templates/common/content', 'slider') ?>
 </div>
-<div class="ctheme-banner">
-    <?php get_template_part('templates/common/cover', 'story') ?>
-</div>
+
+<!-- <div class="ctheme-banner">
+    < ?php get_template_part('templates/common/cover', 'story') ?>
+</div> -->
 
 <!-- Trending BEGIN -->
 <div class="ctheme-hm-trending">
@@ -44,6 +44,7 @@ $page_no = get_query_var('paged');
     </div>
 
     <hr>
+
     <!-- Time List Start -->
     <!-- < ?php include(TEMPLATEPATH . '/templates/common/time.php'); ?> -->
     <!-- Time List End -->
@@ -62,7 +63,12 @@ $page_no = get_query_var('paged');
     <?php get_template_part('templates/common/health', 'fitness') ?>
 
     <!-- cover story -->
-    <?php get_template_part('templates/common/sticky', 'story') ?>
+    <div class="ctheme-banner py-5">
+        <?php get_template_part('templates/common/cover', 'story') ?>
+    </div>
+    <hr>
+
+    <!-- < ?php get_template_part('templates/common/sticky', 'story') ?> -->
 
     <!-- Lifestyle List Start -->
     <?php get_template_part('templates/common/life', 'style') ?>

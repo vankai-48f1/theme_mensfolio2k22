@@ -25,27 +25,47 @@
 
 /* recustom container bootstrap */
 @media (min-width: 576px) {
-  .container-sm, .container {
+  .container-sm,
+  .container,
+  .container-fluid {
     max-width: 540px;
   }
 }
 @media (min-width: 768px) {
-  .container-md, .container-sm, .container {
+  .container-md,
+  .container-sm,
+  .container,
+  .container-fluid {
     max-width: 720px;
   }
 }
 @media (min-width: 992px) {
-  .container-lg, .container-md, .container-sm, .container {
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container,
+  .container-fluid {
     max-width: 960px;
   }
 }
 @media (min-width: 1200px) {
-  .container-xl, .container-lg, .container-md, .container-sm, .container {
+  .container-xl,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container,
+  .container-fluid {
     max-width: 1140px;
   }
 }
 @media (min-width: 1400px) {
-  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
+  .container-xxl,
+  .container-xl,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container,
+  .container-fluid {
     max-width: 1320px;
   }
 }
@@ -54,7 +74,16 @@ body {
   font-family: "BeVietnamPro-Regular";
 }
 
-h1, h2, h3, h4, h5, h6 {
+body p, body ul li {
+  font-family: "BeVietnamPro-Regular";
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   letter-spacing: normal;
   font-family: "BeVietnamPro-Bold", sans-serif;
   color: #010101;
@@ -84,6 +113,13 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 14px;
   font-style: italic;
   text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ctheme-header__hashtag a {
+  letter-spacing: 0;
+  display: inline-block;
+  margin-left: 3px;
 }
 
 .social_media--social {
@@ -406,6 +442,7 @@ footer .footer_menu_container ul li:last-of-type {
   font-weight: 700;
   font-size: 16px;
   text-transform: uppercase;
+  display: inline-block;
 }
 
 a.ctheme-more-articles {
@@ -422,6 +459,9 @@ a.ctheme-more-articles {
 
 .ctheme-banner .description {
   bottom: 50%;
+  transform: translateY(50%);
+  -webkit-transform: translateY(50%);
+  -ms-transform: translateY(50%);
   background-color: transparent;
 }
 
@@ -436,14 +476,8 @@ a.ctheme-more-articles {
   max-width: 75%;
 }
 
-@media (min-width: 1024px) {
-  .ctheme-banner .description h2 {
-    font-size: 40px;
-  }
-
-  .ctheme-banner .description h2:not(.container-fluid .description h2) {
-    max-width: 55%;
-  }
+.ctheme-hm-slider .section_slider {
+  margin-bottom: 0;
 }
 
 .ctheme-pagination {
@@ -601,7 +635,59 @@ a.ctheme-more-articles {
 .single .ctheme-post-content .entry_blog_meta {
   margin-bottom: calc(50px + 5vw);
 }
+/* === Home Slider ======= */
+/* === Home Slider ======= */
+/* === Home Slider ======= */
+.ctheme-hm-slider #hompage-owl .item .carousel-description {
+  bottom: 50%;
+  background-color: transparent;
+  /* transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%); */
+}
 
+.ctheme-hm-slider .slide-image-wrap {
+  position: relative;
+  padding-top: 52.5%;
+}
+
+.ctheme-hm-slider .slide-image-wrap img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.ctheme-hm-slider .owl-dots {
+  position: absolute;
+  bottom: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  width: auto;
+  display: flex;
+}
+
+.ctheme-hm-slider .owl-dot span {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #fff;
+  margin: 0 8px;
+}
+
+.ctheme-hm-slider .owl-dot.active span {
+  opacity: 0.5;
+}
+
+.ctheme-hm-slider #hompage-owl .item .carousel-description h2 {
+  line-height: 1.3;
+}
 /* Responsive */
 
 @media (min-width: 992px) {
@@ -611,12 +697,27 @@ a.ctheme-more-articles {
   }
 }
 
+@media (min-width: 1024px) {
+  .ctheme-banner .description h2 {
+    font-size: 37px;
+  }
+
+  .ctheme-banner .description h2:not(.container-fluid .description h2) {
+    max-width: 55%;
+  }
+
+  .ctheme-hm-slider #hompage-owl .item .carousel-description h2 {
+    font-size: 37px;
+    max-width: 85%;
+    margin: 0 auto;
+  }
+}
+
 @media (min-width: 1200px) {
   .ctheme-post-content .entry_summary .ctheme-picture-wrap {
     margin-left: -170px;
     margin-right: -170px;
   }
-
 }
 
 @media (max-width: 991px) {
@@ -627,7 +728,7 @@ a.ctheme-more-articles {
   .font-primary-01 {
     font-size: calc(1rem + 2.3vw);
   }
-  
+
   .ctheme-mobile-menu .search-form {
     margin-bottom: 0;
   }

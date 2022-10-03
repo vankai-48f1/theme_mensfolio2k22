@@ -5,7 +5,7 @@ function mensfolio_enqueue_style()
     wp_dequeue_script('all_scripts');
     wp_dequeue_script('custom-script');
     wp_enqueue_script('child_theme_all_scripts', get_stylesheet_directory_uri() . '/dist/components/all.min.js', false, false, true);
-    wp_enqueue_script('child_theme_all_scripts', get_stylesheet_directory_uri() . '/assets/js/back-to-top.js', false, false, true);
+    wp_enqueue_script('child_theme_backtotop_scripts', get_stylesheet_directory_uri() . '/assets/js/back-to-top.js', false, false, true);
 
     // Css
     wp_enqueue_style('child_theme_style_css', get_stylesheet_directory_uri() . '/assets/css/style.css', false);
@@ -122,4 +122,22 @@ function ctheme_ajax_more_article()
         echo '<div class="text-danger col-12 my-3 text-center">Author ID invalid</div>';
     endif;
     die();
+}
+
+// get thumbnail
+function ctheme_generate_image($id, $size = 'format_6'){
+    $thumb = get_post_image($id, $size);
+
+    if( empty($thumb) ){
+        $thumb = get_field( "post_squared_thumbnail_image", $id );
+        if (empty($thumb)) {
+            $thumb = wp_get_attachment_image_src(get_post_thumbnail_id($id), $size)[0];
+        }
+    }
+
+    if( empty($thumb) ){
+        $thumb = get_stylesheet_directory_uri() . "/dist/images/no-image.jpg";
+    }
+
+    return $thumb;
 }

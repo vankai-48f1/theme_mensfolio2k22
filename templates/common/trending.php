@@ -14,7 +14,7 @@
                 $post_title = trim(limit_text((!empty($custom_title) ? $custom_title : (apply_filters('the_title', $post->post_title))), 125));
                 $post_date = date('d M Y', strtotime($post->post_date));
                 $cat_name = get_cat_name($cat_id);
-                $thumb = generate_image(get_the_ID(), 'format_3');
+                $thumb = ctheme_generate_image(get_the_ID(), 'format_6');
                 ?>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-12 mb-4">
                     <div class="latest-card mb-2">

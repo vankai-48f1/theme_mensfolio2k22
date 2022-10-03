@@ -1,5 +1,5 @@
 <?php if (get_cat_name(4668)) : ?>
-    <div class="py-5">
+    <div class="pb-5">
         <h3 class="text-center py-3 text-uppercase"><?php echo get_cat_name(4668); ?></h3>
         <div class="row talent-hub-container">
             <div class="col-lg-12">

@@ -158,7 +158,27 @@
                             <!-- Language -->
                             <div class="col-lg-3 col-12">
                                 <div class="ctheme-header__top-right">
-                                    <div class="ctheme-header__hashtag"><span>#Fitclub</span>&nbsp;<span>#Trending</span>&nbsp;<span>#CQQJZ</span></div>
+                                    <!-- <div class="ctheme-header__hashtag"><span>#Fitclub</span>&nbsp;<span>#Trending</span>&nbsp;<span>#CQQJZ</span></div> -->
+                                    <?php
+                                    $tags = get_tags(array(
+                                        'taxonomy'                  => 'post_tag',
+                                        'orderby'                   => 'count',
+                                        'number'                    => 3,
+                                        'order'                     => 'DESC',
+                                        'ignore_term_order' => TRUE
+                                    ));
+                                    echo '<div class="ctheme-header__hashtag">';
+                                    foreach ($tags as $tag) {
+                                        $tag_link = get_tag_link($tag->term_id);
+                                        echo "<span class='ctheme-header__hashtag-item'><a href='$tag_link' title='$tag->name'>#$tag->name($tag->count)</a></span>";
+                                    }
+                                    echo '</div>';
+                                    ?>
+                                    <!-- <div class="ctheme-header__hashtag">
+                                        <a href="< ?php echo get_tag_link(267) ?>">#< ?php echo get_tag(267)->name ?></a>
+                                        <a href="< ?php echo get_tag_link(321) ?>">#< ?php echo get_tag(321)->name ?></a>
+                                        <a href="< ?php echo get_tag_link(51) ?>">#< ?php echo get_tag(51)->name ?></a>
+                                    </div> -->
                                     <div class="social_media--language">
                                         <ul>
                                             <li>

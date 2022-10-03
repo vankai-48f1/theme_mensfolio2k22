@@ -65,7 +65,7 @@ $the_query = new WP_Query($args);
                 <div class="row">
                     <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
                         <?php
-                        $thumb = generate_image(get_the_ID(), 'format_2');
+                        $thumb = ctheme_generate_image(get_the_ID(), 'format_2');
                         $custom_title = get_field("display_title", get_the_ID());
                         $post_title = trim(limit_text((!empty($custom_title) ? $custom_title : (apply_filters('the_title', $post->post_title))), 115));
                         $categories = get_the_category($id);

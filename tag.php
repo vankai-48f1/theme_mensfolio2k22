@@ -8,11 +8,11 @@ get_header();
 <?php
 $sticky_post = get_field('sticky_stories', 'options');
 $stick_post_id = get_ad_internal_ids($sticky_post);
-$cat_id = get_query_var('cat');
-$cat_name = get_cat_name($cat_id);
 $request_type = "post";
 $request_id = 0;
 $page_no = get_query_var('paged');
+
+$tag = get_queried_object();
 
 $args = array(
     'post_type'        => 'post',
@@ -22,17 +22,13 @@ $args = array(
     'order'            => 'DESC',
     'paged'            => $page_no,
 );
-if (!empty($cat_id)) {
-    $args = array_merge($args, array('cat' => $cat_id));
-    $request_type = "cat";
-}
 
 $the_query = new WP_Query($args);
 ?>
 <?php if ($the_query->have_posts()) : ?>
     <div class="container">
         <div class="category-header">
-            <h3 class="text-center pb-4 text-uppercase"><?php echo get_cat_name($cat_id); ?></h3>
+            <h3 class="text-center pb-4 text-uppercase"><?php echo $tag->name; ?></h3>
         </div>
         <div class="category-wrap">
             <div class="row">
@@ -47,7 +43,6 @@ $the_query = new WP_Query($args);
                     $excerpt = !empty($post->post_excerpt) ? $post->post_excerpt : $post->post_content;
                     $post_excerpt = limit_text(strip_tags($excerpt), $limit_excerpt);
                     $request_id = $request_type == "cat" ? $cat_id : $id;
-                    $cat_name = get_cat_name($cat_id);
                     ?>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-12 mb-4">
                         <div class="latest-card mb-2">
@@ -56,9 +51,13 @@ $the_query = new WP_Query($args);
                                 <img class="card-img-top lazy_loading" data-src="<?php echo $thumb; ?>" data-holder-rendered="true">
                             </a>
                             <div class="py-3 px-3 text-center">
-                                <a href="<?php echo get_category_link($cat_id) ?>" class="d-block mb-2 ctheme-cate-post">
-                                    <?php echo $cat_name; ?>
-                                </a>
+                                <div class="author-post-cate mb-2">
+                                    <?php foreach ($categories as $cat) : ?>
+                                        <a href="<?php echo get_category_link($cat->cat_ID); ?>" class="ctheme-cate-post">
+                                            <?php echo $cat->name; ?>
+                                        </a>
+                                    <?php endforeach; ?>
+                                </div>
                                 <a href="<?php echo get_permalink($id); ?>" title="<?php echo $post_title; ?>" alt="<?php echo $post_title; ?>">
                                     <h5 class="card-title text-center font-family-01">
                                         <?php echo $post_title ?>
@@ -76,7 +75,7 @@ $the_query = new WP_Query($args);
                 the_posts_pagination(array(
                     'prev_text'          => __('<', 'twentyfifteen'),
                     'next_text'          => __('>', 'twentyfifteen'),
-                    'class'              => 'ctheme-pagination',   
+                    'class'              => 'ctheme-pagination',
                     'before_page_number' => '<span class="meta-nav screen-reader-text">' . __('', 'twentyfifteen') . ' </span>',
                 ));
                 echo '</div>';
