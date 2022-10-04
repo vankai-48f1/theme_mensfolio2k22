@@ -16,7 +16,7 @@
     $('.ctheme-search-icon').on('click', function (e) {
       e.preventDefault();
       e.stopPropagation();
-      $(this).parent().toggleClass('show-form')
+      $(this).closest('.ctheme-menu-ctn').toggleClass('show-form')
     })
 
     // Wrap img in content post

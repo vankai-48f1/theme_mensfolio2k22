@@ -1,8 +1,11 @@
 <?php
 get_header();
+$current_cate = get_queried_object();
 ?>
 <div class="ctheme-cate-banner ctheme-banner pb-5">
-    <?php get_template_part('templates/common/cover', 'story') ?>
+    <?php if (get_field('banner_slider_tax', $current_cate)) : ?>
+        <?php get_template_part('templates/common/banner', 'slider') ?>
+    <?php endif; ?>
 </div>
 
 <?php
@@ -76,7 +79,7 @@ $the_query = new WP_Query($args);
                 the_posts_pagination(array(
                     'prev_text'          => __('<', 'twentyfifteen'),
                     'next_text'          => __('>', 'twentyfifteen'),
-                    'class'              => 'ctheme-pagination',   
+                    'class'              => 'ctheme-pagination',
                     'before_page_number' => '<span class="meta-nav screen-reader-text">' . __('', 'twentyfifteen') . ' </span>',
                 ));
                 echo '</div>';

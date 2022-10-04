@@ -251,6 +251,14 @@
                                     <!--Separator-->
                                     <hr>
 
+                                    <!-- Hashtag -->
+                                    <?php
+                                    wp_nav_menu(array(
+                                        'theme_location' => 'hashtag-menu',
+                                        'menu_class'     => 'ctheme-header__hashtag ctheme-header__hashtag--mb',
+                                        'container_class' => 'ctheme-hastag',
+                                    ));
+                                    ?>
                                     <div class="collapse navbar-collapse" id="navbarNav">
                                         <?php
                                         wp_nav_menu(array(
@@ -260,48 +268,58 @@
                                         ));
                                         ?>
                                     </div>
+                                    <div class="ctheme-menu-ctn">
 
-                                    <div class="social_media">
-                                        <div class="ctheme-mobile-social">
-                                            <div class="ctheme-mobile-social__left">
-                                                <?php echo get_search_form(true); ?>
-                                            </div>
-                                            <div class="ctheme-mobile-social__right">
-                                                <ul>
-                                                    <li onclick="dropdowntoggle()" class="dropbtn">
-                                                        <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.3.0/flags/4x3/vn.svg" class="flag dropbtn">
-                                                        <ul id="dropdowncontent" class="dropdown">
-                                                            <li>
-                                                                <a href="https://www.mens-folio.com/"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.3.0/flags/4x3/sg.svg" class="flag"></a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="http://mens-folio.com.my"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.3.0/flags/4x3/my.svg" class="flag"></a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="https://mens-folio.id"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.3.0/flags/4x3/id.svg" class="flag"></a>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                    <?php
-                                                    if (!empty($social_medias)) {
-                                                        foreach ($social_medias as $sm) {
-                                                            $name = $sm['name'];
-                                                            $icon = $sm['icon'];
-                                                            $url  = $sm['url'];
 
-                                                    ?>
-                                                            <li class="icon <?php echo strtolower($name); ?>">
-                                                                <?php
-                                                                echo (!empty($icon) ? '<a href="' . $url . '" title="' . $site_name . ' ' . $name . '"  alt="' . $site_name . ' ' . $name . '" target="_blank"><img src="' . $icon . '"  title="' . $site_name . ' ' . $name . '"  alt="' . $site_name . ' ' . $name . '" ></a>' : '<span class="s_heading">' . $name . '</span>')
-                                                                ?>
-                                                            </li>
-                                                    <?php
-                                                            //echo '<li class="icon">'.(!empty($icon) ? '<a href="'.$url.'" style="background:url('.$icon.')" title="'.$name.'"  alt="'.$name.'" targe="_blank">&nbsp;</a>' : '<span class="s_heading">'.$name.'</span>').'</li>';
+                                        <div class="social_media">
+                                            <div class="ctheme-mobile-social">
+                                                <div class="ctheme-mobile-social__left">
+                                                    <!-- Search -->
+                                                    <div class="icon ctheme-search-icon">
+                                                        <a href="#" title="Men's Folio Search" alt="Men's Folio Search" class="search">
+                                                            <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/icon_search_white.png" title="Men's Folio Search" alt="Men's Folio Search">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="ctheme-mobile-social__right">
+                                                    <ul>
+                                                        <li onclick="dropdowntoggle()" class="dropbtn">
+                                                            <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.3.0/flags/4x3/vn.svg" class="flag dropbtn">
+                                                            <ul id="dropdowncontent" class="dropdown">
+                                                                <li>
+                                                                    <a href="https://www.mens-folio.com/"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.3.0/flags/4x3/sg.svg" class="flag"></a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="http://mens-folio.com.my"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.3.0/flags/4x3/my.svg" class="flag"></a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="https://mens-folio.id"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.3.0/flags/4x3/id.svg" class="flag"></a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <?php
+                                                        if (!empty($social_medias)) {
+                                                            foreach ($social_medias as $sm) {
+                                                                $name = $sm['name'];
+                                                                $icon = $sm['icon'];
+                                                                $url  = $sm['url'];
+
+                                                        ?>
+                                                                <li class="icon <?php echo strtolower($name); ?>">
+                                                                    <?php
+                                                                    echo (!empty($icon) ? '<a href="' . $url . '" title="' . $site_name . ' ' . $name . '"  alt="' . $site_name . ' ' . $name . '" target="_blank"><img src="' . $icon . '"  title="' . $site_name . ' ' . $name . '"  alt="' . $site_name . ' ' . $name . '" ></a>' : '<span class="s_heading">' . $name . '</span>')
+                                                                    ?>
+                                                                </li>
+                                                        <?php
+                                                                //echo '<li class="icon">'.(!empty($icon) ? '<a href="'.$url.'" style="background:url('.$icon.')" title="'.$name.'"  alt="'.$name.'" targe="_blank">&nbsp;</a>' : '<span class="s_heading">'.$name.'</span>').'</li>';
+                                                            }
                                                         }
-                                                    }
-                                                    ?>
-                                                </ul>
+                                                        ?>
+                                                    </ul>
+                                                </div>
                                             </div>
+                                            <!-- form search -->
+                                            <?php echo get_search_form(true); ?>
                                         </div>
                                     </div>
                                 </nav>

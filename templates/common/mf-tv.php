@@ -51,5 +51,6 @@
                 <?php endif; ?>
             </div>
         </div>
+        <a href="/category/mf-tv" class="ctheme-more-articles more-articles">More Articles</a>
     </div>
 </div>
