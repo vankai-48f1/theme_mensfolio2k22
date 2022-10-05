@@ -75,9 +75,15 @@ $page_no = get_query_var('paged');
     <!-- Lifestyle List End -->
 
     <!-- Business Start -->
-    <?php get_template_part('templates/common/business') ?>
+    <!-- < ?php get_template_part('templates/common/business') ?> -->
     <!-- Business End -->
+
+    <!-- Car Start -->
+    <?php get_template_part('templates/common/car') ?>
+    <!-- Car End -->
     <hr>
+    
+    <?php get_template_part('templates/common/sticky', 'story') ?>
 
     <!-- Talent hub Start -->
     <?php get_template_part('templates/common/talent', 'hub') ?>
