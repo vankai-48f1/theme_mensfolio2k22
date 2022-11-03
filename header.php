@@ -92,10 +92,11 @@
         $description = get_bloginfo('description');
 
         set_query_var("is_sponsored", $is_sponsored);
+        // var_dump($is_sponsored);die;
         ?>
         <header class="ctheme-header">
-            <!-- <div class="container">
-                < ?php
+            <div class="container">
+                <?php
                 function isMobileDevice()
                 {
                     return preg_match(
@@ -111,7 +112,7 @@
                 }
                 ?>
 
-            </div> -->
+            </div>
             <div class="site_navigation">
                 <section id="desktop-container">
                     <div class="container desktop_config">
@@ -133,9 +134,9 @@
                                         ?>
                                                 <li class="icon">
                                                     <?php
-                                                    if ($name == 'Facebook' || $name == 'Instagram' || $name == 'Youtube') {
+                                                    // if ($name == 'Facebook' || $name == 'Instagram' || $name == 'Youtube') {
                                                         echo (!empty($icon) ? '<a href="' . $url . '" title="' . $site_name . ' ' . $name . '"  alt="' . $site_name . ' ' . $name . '" target="_blank"><img src="' . $icon . '"  title="' . $site_name . ' ' . $name . '"  alt="' . $site_name . ' ' . $name . '" ></a>' : '<span class="s_heading">' . $name . '</span>');
-                                                    }
+                                                    // }
 
                                                     ?>
                                                 </li>
