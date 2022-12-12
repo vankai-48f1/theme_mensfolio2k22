@@ -82,7 +82,11 @@ $page_no = get_query_var('paged');
     <?php get_template_part('templates/common/car') ?>
     <!-- Car End -->
     <hr>
-    
+
+    <!-- Business Start-->
+    <?php get_template_part('templates/common/business') ?>
+    <!-- Business End -->
+
     <?php get_template_part('templates/common/sticky', 'story') ?>
 
     <!-- Talent hub Start -->
