@@ -1,11 +1,11 @@
 <div class="mb-5">
-    <h3 class="text-center py-3 text-uppercase"><?php echo get_cat_name(4667); ?></h3>
+    <h3 class="text-center py-3 text-uppercase"><?php echo get_cat_name(4681); ?></h3>
     <div class="row lifestyle-container">
         <div class="col-lg-12">
             <div class="row">
                 <!-- card -->
                 <?php
-                $cat_id = 4667; //lifestyle
+                $cat_id = 4681; //lifestyle
                 $args = array('cat' => $cat_id, 'posts_per_page' => '3', 'post_status' => 'publish');
                 $the_query = new WP_Query($args);
                 ?>
@@ -29,7 +29,7 @@
                             </a>
                             <div class="text-center py-3 px-3">
                                 <a href="<?php echo get_permalink($id); ?>" title="<?php echo $post_title; ?>" alt="<?php echo $post_title; ?>">
-                                    <h5 class="card-title font-family-01"><?php echo wp_trim_words(get_the_title(), 4667); ?></h5>
+                                    <h5 class="card-title font-family-01"><?php echo wp_trim_words(get_the_title(), 4681); ?></h5>
                                 </a>
 
                             </div>
