@@ -10,6 +10,13 @@ get_header();
     < ?php get_template_part('templates/common/cover', 'story') ?>
 </div> -->
 
+<!-- Trending BEGIN -->
+<div class="ctheme-hm-trending">
+    <!-- < ?php include (TEMPLATEPATH . '/templates/common/trending.php'); ?> -->
+    <?php get_template_part('templates/common/trending') ?>
+</div>
+<!-- Trending End -->
+
 <?php
 $sticky_post = get_field('sticky_stories', 'options');
 $stick_post_id = get_ad_internal_ids($sticky_post);
@@ -19,7 +26,6 @@ $request_type = "post";
 $request_id = 0;
 $page_no = get_query_var('paged');
 ?>
-
 <div class="container-fluid">
     <div class="">
         <h3 class="text-center py-3 text-uppercase">STYLE</h3>
@@ -36,42 +42,8 @@ $page_no = get_query_var('paged');
 
         </div>
     </div>
-</div>
 
-<!-- Trending BEGIN (MEN'S FOLIO RECOMMENDS) -->
-<div class="ctheme-hm-trending">
-    <!-- < ?php include (TEMPLATEPATH . '/templates/common/trending.php'); ?> -->
-    <?php get_template_part('templates/common/trending') ?>
-</div>
-<!-- Trending End -->
-
-<!-- Grooming List Start -->
-<div class="hp-grooming" style="background-color: red;">
-    <style>
-
-        .hp-grooming h3 {
-            margin-top: 0;
-        }
-        .hp-grooming h3,
-        .hp-grooming h5 {
-            color: #ffffff;
-        }
-        .hp-grooming a.more-articles {
-            color: #ffffff;
-            border-color: #ffffff;
-        }
-        .hp-grooming a.more-articles:hover {
-            border-color: #000000;
-        }
-    </style>
-    <div class="container-fluid">
-        <!-- < ?php include(TEMPLATEPATH . '/templates/common/grooming.php'); ?> -->
-        <?php get_template_part('templates/common/grooming') ?>
-    </div>
-</div>
-<!-- Grooming List End -->
-
-<div class="container-fluid">
+    <hr>
     <!-- Time List Start -->
     <!-- < ?php include(TEMPLATEPATH . '/templates/common/time.php'); ?> -->
     <!-- Time List End -->
@@ -80,11 +52,14 @@ $page_no = get_query_var('paged');
     <!-- cover story -->
     <!-- < ?php include(TEMPLATEPATH . '/templates/common/sticky-story.php'); ?> -->
 
-    <!-- <hr> -->
+    <!-- Grooming List Start -->
+    <!-- < ?php include(TEMPLATEPATH . '/templates/common/grooming.php'); ?> -->
+    <?php get_template_part('templates/common/grooming') ?>
 
-    <!-- Business Start-->
-    <?php get_template_part('templates/common/business') ?>
-    <!-- Business End -->
+    <!-- Grooming List End -->
+    <hr>
+    <!-- Health & Fitness -->
+    <?php get_template_part('templates/common/health', 'fitness') ?>
 
     <!-- cover story -->
     <div class="ctheme-banner py-5">
@@ -94,42 +69,29 @@ $page_no = get_query_var('paged');
 
     <!-- < ?php get_template_part('templates/common/sticky', 'story') ?> -->
 
-    <!-- MF TV List Start -->
-    <?php get_template_part('templates/common/mf', 'tv') ?>
-    <!-- < ?php include(TEMPLATEPATH . '/templates/common/mf-tv.php'); ?> -->
-    <!-- MF TV List End -->
+    <!-- Lifestyle List Start -->
+    <?php get_template_part('templates/common/life', 'style') ?>
+    <!-- Lifestyle List End -->
 
     <!-- Business Start -->
     <!-- < ?php get_template_part('templates/common/business') ?> -->
     <!-- Business End -->
-
-</div>
-
-<!-- Car Start -->
-<div style="background-color: #81d8d0;">
-    <div class="container-fluid">
-        <?php get_template_part('templates/common/car') ?>
-    </div>
-</div>
-<!-- Car End -->
-
-<div class="container-fluid">
-    <!-- Health & Fitness -->
-    <?php get_template_part('templates/common/health', 'fitness') ?>
-    <!-- Health & Fitness End -->
+    
+    <!-- Car Start -->
+    <?php get_template_part('templates/common/car') ?>
+    <!-- Car End -->
+    <hr>
+    
+    <!-- Business Start-->
+    <?php get_template_part('templates/common/business') ?>
+    <!-- Business End -->
 
     <?php get_template_part('templates/common/sticky', 'story') ?>
-</div>
 
-<!-- Talent hub Start -->
-<div style="background-color: orange;">
-    <div class="container-fluid">
-        <?php get_template_part('templates/common/talent', 'hub') ?>
-    </div>
-</div>
-<!-- Talent hub End -->
+    <!-- Talent hub Start -->
+    <?php get_template_part('templates/common/talent', 'hub') ?>
+    <!-- Talent hub End -->
 
-<div class="container-fluid">
     <!-- < ?php include(TEMPLATEPATH . '/templates/common/sticky-story3.php'); ?> -->
 
     <!-- Trending BEGIN -->
@@ -140,9 +102,10 @@ $page_no = get_query_var('paged');
     <!-- < ?php include(TEMPLATEPATH . '/templates/common/pop.php'); ?> -->
     <!-- POP List End -->
 
-    <!-- Lifestyle List Start -->
-    <?php get_template_part('templates/common/life', 'style') ?>
-    <!-- Lifestyle List End -->
+    <!-- MF TV List Start -->
+    <?php get_template_part('templates/common/mf', 'tv') ?>
+    <!-- < ?php include(TEMPLATEPATH . '/templates/common/mf-tv.php'); ?> -->
+    <!-- MF TV List End -->
 </div>
 
 <!-- Begin Mailchimp Signup Form -->

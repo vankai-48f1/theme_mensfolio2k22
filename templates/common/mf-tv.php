@@ -7,7 +7,7 @@
                 <!-- card -->
                 <?php
                 $cat_id = 76; //mf
-                $args = array('cat' => $cat_id, 'posts_per_page' => '3', 'post_status' => 'publish');
+                $args = array('cat' => $cat_id, 'posts_per_page' => '6', 'post_status' => 'publish');
                 $the_query = new WP_Query($args);
                 ?>
                 <?php if ($the_query->have_posts()) : ?>

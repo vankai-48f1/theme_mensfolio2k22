@@ -8,6 +8,24 @@ $sliders = get_field('slider_slides', 209);
     <div class="col-12">
         <div id="owl" class="homepage-owl-container">
             <div id="hompage-owl" class="owl-carousel owl-loaded">
+                <style>
+                    .homepage-owl-cate {
+                        text-transform: uppercase;
+                        color: #ffffff;
+                        line-height: 1.5;
+                        font-size: 16px;
+                        display: inline-block;
+                        margin-bottom: 8px;
+                    }
+
+                    .homepage-owl-cate span {
+                       text-decoration: underline;
+                    }
+                    .homepage-owl-cate span:not(:last-child)::after {
+                        content: " ,";
+                    }
+                </style>
+
                 <?php
                 foreach ($sliders as $sl) {
                     $link_to_post = $sl['link_to_post_post'][0];
@@ -26,6 +44,14 @@ $sliders = get_field('slider_slides', 209);
 
                             <div class="carousel-description">
                                 <div class="">
+                                    <div class="homepage-owl-cate">
+                                        <?php
+                                        $postcat = get_the_category($sl->ID);
+                                        foreach ($postcat as $cat) {
+                                            echo '<span>' . esc_html($cat->name) . '</span>';
+                                        }
+                                        ?>
+                                    </div>
                                     <h2>
                                         <?php echo $title; ?>
                                     </h2>
