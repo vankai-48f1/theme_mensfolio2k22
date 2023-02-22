@@ -9,7 +9,12 @@ get_header();
 <!-- <div class="ctheme-banner">
     < ?php get_template_part('templates/common/cover', 'story') ?>
 </div> -->
-
+<!-- Trending BEGIN (MEN'S FOLIO RECOMMENDS) -->
+<div class="container-fluid">
+    <!-- < ?php include (TEMPLATEPATH . '/templates/common/trending.php'); ?> -->
+    <?php get_template_part('templates/common/trending') ?>
+</div>
+<!-- Trending End -->
 <?php
 $sticky_post = get_field('sticky_stories', 'options');
 $stick_post_id = get_ad_internal_ids($sticky_post);
@@ -20,8 +25,8 @@ $request_id = 0;
 $page_no = get_query_var('paged');
 ?>
 
-<div class="container-fluid">
-    <div class="">
+<div class="ctheme-hm-trending">
+    <div class="container-fluid">
         <h3 class="text-center py-3 text-uppercase">STYLE</h3>
         <div class="row style-container mb-5">
 
@@ -38,13 +43,10 @@ $page_no = get_query_var('paged');
     </div>
 </div>
 
-<!-- Trending BEGIN (MEN'S FOLIO RECOMMENDS) -->
-<div class="ctheme-hm-trending">
-    <!-- < ?php include (TEMPLATEPATH . '/templates/common/trending.php'); ?> -->
-    <?php get_template_part('templates/common/trending') ?>
-</div>
-<!-- Trending End -->
 
+<div class="container-fluid">
+<?php get_template_part('templates/common/business') ?>
+</div>
 <!-- Grooming List Start -->
 <div class="hp-grooming" style="background-color: red;">
     <style>
@@ -83,7 +85,7 @@ $page_no = get_query_var('paged');
     <!-- <hr> -->
 
     <!-- Business Start-->
-    <?php get_template_part('templates/common/business') ?>
+    <?php //get_template_part('templates/common/business') ?>
     <!-- Business End -->
 
     <!-- cover story -->

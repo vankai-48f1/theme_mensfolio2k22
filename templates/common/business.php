@@ -29,7 +29,7 @@
                             </a>
                             <div class="text-center py-3 px-3">
                                 <a href="<?php echo get_permalink($id); ?>" title="<?php echo $post_title; ?>" alt="<?php echo $post_title; ?>">
-                                    <h5 class="card-title font-family-01"><?php echo wp_trim_words(get_the_title(), 4681); ?></h5>
+                                    <h5 class="card-title font-family-01"><?php echo wp_trim_words(get_the_title(), 20); ?></h5>
                                 </a>
 
                             </div>
